@@ -29,7 +29,7 @@ int displayDirectory(const char *path)
     if (!dir)
     {
         fprintf(stderr, "Error: Cannot open the directory\n");
-        return 0;
+        return 1;
     }
 
     while ((currDir = readdir(dir)) != NULL)
