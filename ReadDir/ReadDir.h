@@ -81,8 +81,3 @@ int displayDirectory(const char *path)
     closedir(dir);
     return 0;
 }
-
-int main()
-{
-    displayDirectory(".");
-}
