@@ -2,10 +2,10 @@
 #include <stdlib.h>
 #include "liststring.h"
 
-String ReadFile(FILE* file, char* output) {
+String ReadFile(FILE* file) {
 	char c;
 	String str = createString();
-	while(true){
+	while(1){
 		if (feof(file)) {
 			break;
 		}

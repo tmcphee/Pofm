@@ -1,0 +1,57 @@
+﻿  Main.c
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(46,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(49,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(56,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(9,13): error C2011:  'node': 'struct' type redefinition
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(9): message :  see declaration of 'node'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(15,14): error C2011:  'string': 'struct' type redefinition
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(15): message :  see declaration of 'string'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(39,29): error C2084:  function 'int stringLength(string *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(39): message :  see previous definition of 'stringLength'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(43,36): error C2084:  function 'char sgetChar(string *,int)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(43): message :  see previous definition of 'sgetChar'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(46,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(49,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(56,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(62,23): error C2084:  function 'string *createString()' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(62): message :  see previous definition of 'createString'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(76,51): error C2084:  function 'void stringCat(string *,string *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(76): message :  see previous definition of 'stringCat'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(85,29): error C2084:  function 'void freeString(string *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(85): message :  see previous definition of 'freeString'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(92,42): error C2084:  function 'void addChar(string *,char)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(92): message :  see previous definition of 'addChar'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(114,58): error C2084:  function 'void addCharIndex(string *,char,int)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(114): message :  see previous definition of 'addCharIndex'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(153,29): error C2084:  function 'char *putString(string *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(153): message :  see previous definition of 'putString'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(167,28): error C2084:  function 'void printString(string *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(167): message :  see previous definition of 'printString'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(176,42): error C2084:  function 'void scanString(string *,char *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(176): message :  see previous definition of 'scanString'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(185,29): error C2084:  function 'void stringGets(string *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(185): message :  see previous definition of 'stringGets'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(194,30): error C2084:  function 'void clearString(string *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(194): message :  see previous definition of 'clearString'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(208,40): error C2084:  function 'void deleteChar(string *,int)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(208): message :  see previous definition of 'deleteChar'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(243,46): error C2084:  function 'void deleteCharValue(string *,char)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(243): message :  see previous definition of 'deleteCharValue'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(268,43): error C2084:  function 'string *splitString(string *,int)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(268): message :  see previous definition of 'splitString'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(284,32): error C2084:  function 'void stringToUpper(string *)' already has a body
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(284): message :  see previous definition of 'stringToUpper'
+C:\Users\tyler\Documents\GitHub\Pofm\OpenFile.h(6,25): warning C4133:  'function': incompatible types - from 'string *' to 'const char *'
+C:\Users\tyler\Documents\GitHub\Pofm\OpenFile.h(6,1): error C4996:  'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\stdio.h(208): message :  see declaration of 'fopen'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(9,13): error C2011:  'node': 'struct' type redefinition
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(9): message :  see declaration of 'node'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(15,14): error C2011:  'string': 'struct' type redefinition
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(15): message :  see declaration of 'string'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(46,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(49,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\tyler\Documents\GitHub\Pofm\liststring.h(56,14): warning C4047:  'return': 'char' differs in levels of indirection from 'void *'
+  ReadDirMain.c
+C:\Users\tyler\Documents\GitHub\Pofm\Main.c(8,34): warning C4133:  'function': incompatible types - from 'char [9]' to 'string *'
+  Generating Code...
+C:\Users\tyler\Documents\GitHub\Pofm\ReadDir\ReadDir.h(3,10): error C1083:  Cannot open include file: 'dirent.h': No such file or directory
