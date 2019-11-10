@@ -1,1 +1,1 @@
-The functions fgets() reads up to n-1 characters from the input stream referenced by fp. It copies the read string into the buffer buf, appending a null character to terminate the string.
+This is a text file used to test our functions.

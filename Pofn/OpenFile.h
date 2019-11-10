@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "liststring.h"
 
-FILE* OpenFile(String path) {
-	FILE* file = fopen(path, "w+");
+FILE* OpenFile(char* path) {
+	FILE* file = fopen(path, "a+");
 	return file;
 }

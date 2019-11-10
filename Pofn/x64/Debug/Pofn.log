@@ -1,0 +1,5 @@
+﻿  Main.c
+C:\Users\Troy\source\repos\Pofm\Pofn\liststring.h(49,14): warning C4047: 'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\Troy\source\repos\Pofm\Pofn\liststring.h(52,14): warning C4047: 'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\Troy\source\repos\Pofm\Pofn\liststring.h(59,14): warning C4047: 'return': 'char' differs in levels of indirection from 'void *'
+  Pofn.vcxproj -> C:\Users\Troy\source\repos\Pofm\x64\Debug\Pofn.exe

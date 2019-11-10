@@ -1,3 +1,6 @@
+#ifndef liststring_h
+#define liststring_h
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,7 +15,7 @@ struct node {
 	NODE* prev;
 };
 
-struct string{
+struct string {
 	NODE* head;
 	NODE* tail;
 	int count;
@@ -36,7 +39,7 @@ void deleteChar(String str, int index);
 String splitString(String str, int index);
 void stringToUpper(String str);
 
-int stringLength(String str){
+int stringLength(String str) {
 	return str->count;
 }
 
@@ -45,7 +48,7 @@ char sgetChar(String str, int pos) {
 		//printf("ERROR: REQUESTED POSITION OUTSIDE RANGE OF STRING");
 		return NULL;
 	}
-	if (str->head == NULL){
+	if (str->head == NULL) {
 		return NULL;
 	}
 	NODE* n = str->head;
@@ -154,7 +157,7 @@ char* putString(String str) {
 	char* temp = (char*)malloc(str->count + 1);
 	NODE* tempnode = str->head;
 	int i = 0;
-	while(tempnode != NULL){
+	while (tempnode != NULL) {
 		temp[i] = tempnode->character;
 		tempnode = tempnode->next;
 		i++;
@@ -184,8 +187,8 @@ void scanString(String str, char* input) {
 //Gets entire input stream from stdio until newline character
 void stringGets(String str) {
 	char c = getchar();
-	
-	while(c != '\n'){
+
+	while (c != '\n') {
 		addChar(str, c);
 		c = getchar();
 	}
@@ -207,7 +210,7 @@ void clearString(String str) {
 
 void deleteChar(String str, int index) {
 	if ((str->count - 1) < index) { printf("ERROR: Attempted to Acess element outside of string bounds\n"); return; };
-	NODE* n = str->head, *prevLoc, *nextLoc;
+	NODE* n = str->head, * prevLoc, * nextLoc;
 	for (int i = 0; i < index; i++) {
 		n = n->next;
 	}
@@ -241,7 +244,7 @@ void deleteChar(String str, int index) {
 	return;
 }
 void deleteCharValue(String str, char value) {
-	NODE* n = str->head, *nextLoc;
+	NODE* n = str->head, * nextLoc;
 	int i = 0;
 	if (n == NULL) { return; };
 	while (n != NULL) {
@@ -258,7 +261,7 @@ void deleteCharValue(String str, char value) {
 		}
 		i++;
 		if (i == str->count - 1 && value == str->tail->character) {
-			deleteChar(str, str->count-1);
+			deleteChar(str, str->count - 1);
 			return;
 		}
 	}
@@ -317,8 +320,8 @@ int main(void) {
 	printString(str);
 	printf("\n");
 	printString(str2);
-	
-	
+
+
 	//printString(str2);
 }*/
-
+#endif // !liststring.h
