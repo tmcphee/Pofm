@@ -102,9 +102,9 @@ int displayDirectory(const char *path)
     printDirectory(folderCounter, folders, foldersDateMod, fileCounter, files, filesDateMod, fileSizes);
 
     closedir(dir);
-    free(files);
-    free(filesDateMod);
-    free(folders);
-    free(foldersDateMod);
+    // free(files);
+    // free(filesDateMod);
+    // free(folders);
+    // free(foldersDateMod);
     return 0;
 }
