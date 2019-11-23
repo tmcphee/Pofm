@@ -21,17 +21,17 @@
   <ItemGroup>
     <ClInclude Include="CloseFile.h" />
     <ClInclude Include="CopyFile.h" />
+    <ClInclude Include="CreateFile.h" />
     <ClInclude Include="DeleteFile.h" />
     <ClInclude Include="liststring.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MoveFile.h" />
     <ClInclude Include="OpenFile.h" />
-    <ClInclude Include="ReadDir\ReadDir.h" />
     <ClInclude Include="ReadFile.h" />
+    <ClInclude Include="rename.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.c" />
-    <ClCompile Include="ReadDir\ReadDirMain.c" />
     <ClCompile Include="WriteFile.c" />
   </ItemGroup>
   <ItemGroup>

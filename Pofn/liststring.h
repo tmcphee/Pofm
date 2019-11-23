@@ -21,23 +21,25 @@ struct string {
 	int count;
 };
 
-String createString();
-char sgetChar(String str, int pos);
-void stringCat(String str1, String str2);
-void freeString(String str);
-void addChar(String str, char character);
-void addCharIndex(String str, char character, int index);
-char* putString(String str);
-void printString(String s);
-void scanString(String str, char* input);
-void stringGets(String str);
-int stringLength(String str);
-void clearString(String str);
-void deleteChar(String str, int index);
-void deleteCharValue(String str, char value);
-void deleteChar(String str, int index);
-String splitString(String str, int index);
-void stringToUpper(String str);
+String createString();										//create a string
+char sgetChar(String str, int pos);							//Get the character at a given position in the string
+void stringCat(String str1, String str2);					//Concatenate two strings
+void freeString(String str);								//Free the string memory
+void addChar(String str, char character);					//Add a character to the end of the string
+void addCharIndex(String str, char character, int index);	//add a character at a specific index
+char* putString(String str);					 //Return a character array from a string
+void printString(String str);					 //Print the string
+void scanString(String str, char* input);		 //scan contents of character array into string
+void stringGets(String str);					 //read console into string
+int stringLength(String str);				 	 //length of the string
+void clearString(String str);				 	 //emptys the contents of the string
+void deleteChar(String str, int index);			 //delete character
+void deleteCharValue(String str, char value);	 //delete a specific character from a string
+String splitString(String str, int index);		 //split the string in half at a certain index
+void stringToUpper(String str);					 //converts string to upper case
+void scanStringFirst(String str, char* input);    //Appends to start of string
+int stringComp(String str1, String str2);	//check equality of two strings
+void stringCopy(String str1, String str2);
 
 int stringLength(String str) {
 	return str->count;
@@ -46,19 +48,19 @@ int stringLength(String str) {
 char sgetChar(String str, int pos) {
 	if (str->count < pos) {
 		//printf("ERROR: REQUESTED POSITION OUTSIDE RANGE OF STRING");
-		return NULL;
+		return (char)NULL;
 	}
 	if (str->head == NULL) {
-		return NULL;
+		return (char)NULL;
 	}
 	NODE* n = str->head;
 	for (int i = 0; i < pos; i++) {
 		n = n->next;
 	}
 	if (n == NULL) {
-		return NULL;
+		return (char)NULL;
 	};
-	return n->character;
+	return (char)n->character;
 }
 
 //Create the String and return the pointer to memory
@@ -131,7 +133,7 @@ void addCharIndex(String str, char character, int index) {
 		ch->next = NULL;
 		ch->prev = prev;
 		str->tail = ch;
-		prev->next = ch;
+		(NODE*)prev->next = ch;
 	}
 	else if (next == str->head) {
 		ch->next = next;
@@ -167,8 +169,8 @@ char* putString(String str) {
 }
 
 //Prints a String from start to finish
-void printString(String s) {
-	NODE* n = s->head;
+void printString(String str) {
+	NODE* n = str->head;
 	while (n != NULL) {
 		printf("%c", n->character);
 		n = n->next;
@@ -292,6 +294,33 @@ void stringToUpper(String str) {
 		}
 		n = n->next;
 	}
+}
+
+void scanStringFirst(String str, char* input) {
+	int i = 0;
+	while (input[i] != '\0') {
+		addCharIndex(str, input[i], i);
+		i++;
+	}
+}
+
+int stringComp(String str1, String str2) {
+	if (stringLength(str1) != stringLength(str2)) {
+		return 0;
+	};
+	for (int i = 0; i < stringLength(str1); i++) {
+		if (sgetChar(str1, i) != sgetChar(str2, i)) {
+			return 0; //false
+		}
+	}
+	return 1; //true 
+}
+
+void stringCopy(String str1, String str2) {
+	char* temp;
+	temp = putString(str2);
+	scanString(str1, temp);
+	free(temp);
 }
 
 /*

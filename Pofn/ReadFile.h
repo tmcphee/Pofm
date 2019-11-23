@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "liststring.h"
 
-String ReadFile(FILE* file) {
+String ReadFileLocal(FILE* file) {
 	char c;
 	String str = createString();
 	while(1){

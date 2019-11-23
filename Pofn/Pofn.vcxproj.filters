@@ -39,7 +39,10 @@
     <ClInclude Include="ReadFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ReadDir\ReadDir.h">
+    <ClInclude Include="CreateFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rename.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -48,9 +51,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WriteFile.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ReadDir\ReadDirMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

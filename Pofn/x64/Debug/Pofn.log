@@ -1,5 +1,3 @@
 ﻿  Main.c
-C:\Users\Troy\source\repos\Pofm\Pofn\liststring.h(49,14): warning C4047: 'return': 'char' differs in levels of indirection from 'void *'
-C:\Users\Troy\source\repos\Pofm\Pofn\liststring.h(52,14): warning C4047: 'return': 'char' differs in levels of indirection from 'void *'
-C:\Users\Troy\source\repos\Pofm\Pofn\liststring.h(59,14): warning C4047: 'return': 'char' differs in levels of indirection from 'void *'
+C:\Users\Troy\source\repos\Pofm\Pofn\MoveFile.h(114,13): warning C4013: 'deleteFile' undefined; assuming extern returning int
   Pofn.vcxproj -> C:\Users\Troy\source\repos\Pofm\x64\Debug\Pofn.exe

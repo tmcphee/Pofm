@@ -1,21 +1,36 @@
+#pragma once
 #include <stdio.h>
+#include "liststring.h"
 
-int main()
+
+int deleteFile(int mode, char* path)
 {
+  //Variables
   int status;
-  char file_name[50];
+  char* file_name;
+  String str = createString();
+  if (mode == 0) {
+	 printf("Enter name of a file you wish to delete: ");
+	 //Store filename in a string, then point to char array
+	 stringGets(str);
+	 file_name = putString(str);
+  }
+  else {
+	  file_name = path;
+  }
 
-  printf("Enter name of a file you wish to delete: ");
-  scanf("%s", file_name);
+  status = remove(file_name);	//Attempt to remove the file if it exist, otherwise throw error
 
-  status = remove(file_name);
-
-  if (status == 0)
+  if (status == 0 && mode == 0)
     printf("%s file deleted successfully.\n", file_name);
-  else
+  else if(mode == 0)
   {
     printf("Unable to delete the file\n");
     perror("The following error occurred");
   }
 
+  //Freeing Memory
+  free(file_name);
+  freeString(str);
+  return 1;
 }
