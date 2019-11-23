@@ -74,10 +74,10 @@ void moveFileLocal(int mode) {
 
 	//Windows uses \ Linux and Mac uses / Make file path based on OS needed for cross platform
 	#ifdef _WIN32
-	addChar(source, (char)(92));
-	scanString(source, n);
-	addChar(destination, (char)(92));
-	scanString(destination, n);
+		addChar(source, (char)(92));
+		scanString(source, n);
+		addChar(destination, (char)(92));
+		scanString(destination, n);
 	#else
 		addChar(source, (char)(92));
 		scanString(source, n);

@@ -42,7 +42,7 @@
     <ClInclude Include="CreateFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="rename.h">
+    <ClInclude Include="RenameFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -7,7 +7,7 @@
 #include "MoveFile.h"
 #include "CopyFile.h"
 #include "DeleteFile.h"
-#include "rename.h"
+#include "RenameFile.h"
 
 int main(int argc, char* argv[]) {
 	/*if (argc == 0) {
@@ -18,5 +18,6 @@ int main(int argc, char* argv[]) {
 	printString(str);*/
 	
 	//moveFileLocal(1);
-	copyFileLocal();
+	//copyFileLocal();
+	renameLocal();
 }

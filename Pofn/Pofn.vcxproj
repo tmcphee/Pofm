@@ -28,7 +28,7 @@
     <ClInclude Include="MoveFile.h" />
     <ClInclude Include="OpenFile.h" />
     <ClInclude Include="ReadFile.h" />
-    <ClInclude Include="rename.h" />
+    <ClInclude Include="RenameFile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.c" />
