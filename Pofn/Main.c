@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
 	printString(str);*/
 	
 	//moveFileLocal(1);
-	//copyFileLocal();
+	copyFileLocal();
 	//renameLocal();
-	createFileLocal();
+	//createFileLocal();
 }
