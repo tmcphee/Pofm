@@ -3,7 +3,7 @@
 
 void copyFileLocal() {
 	//Variables
-	DIR* source_folder;	//actual source and destination DIR pointers
+	DIR* source_folder;		//actual source and destination DIR pointers
 	struct dirent* entry;	//The file in question
 	char* src, * n, *dest;	//c strings for source destination and name
 	char ch;
