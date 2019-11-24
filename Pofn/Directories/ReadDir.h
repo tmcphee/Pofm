@@ -9,6 +9,15 @@
 #define MAXFILES 1024
 #define MAXPATHLENGTH 255
 
+char *currentDirectory()
+{
+    char cwd[100];
+    char *returnCwd = malloc(sizeof(char) * 100);
+    getcwd(cwd, sizeof(cwd));
+    strcpy(returnCwd, cwd);
+    return returnCwd;
+}
+
 int directoryExists(const char *path)
 {
     DIR *dir = NULL;
