@@ -45,7 +45,7 @@
     <ClInclude Include="RenameFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="textedit.h">
+    <ClInclude Include="TextEdit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

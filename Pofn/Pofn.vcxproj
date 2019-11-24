@@ -29,7 +29,7 @@
     <ClInclude Include="OpenFile.h" />
     <ClInclude Include="ReadFile.h" />
     <ClInclude Include="RenameFile.h" />
-    <ClInclude Include="textedit.h" />
+    <ClInclude Include="TextEdit.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.c" />

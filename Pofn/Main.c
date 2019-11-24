@@ -9,6 +9,7 @@
 #include "DeleteFile.h"
 #include "RenameFile.h"
 #include "CreateFile.h"
+#include "TextEdit.h"
 
 int main(int argc, char* argv[]) {
 	/*if (argc == 0) {
@@ -19,7 +20,8 @@ int main(int argc, char* argv[]) {
 	printString(str);*/
 	
 	//moveFileLocal(1);
-	copyFileLocal();
+	//copyFileLocal();
 	//renameLocal();
 	//createFileLocal();
+	editText('I');
 }
