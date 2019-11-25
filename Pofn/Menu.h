@@ -57,8 +57,15 @@ void commandSwitch(char command[100], char *path)
     }
 	else if (strcmp(commandName, "help") == 0 || strcmp(commandName, "help\n") == 0)
 	{
-		if (strcmp(commandName, "help\n") == 0) {
-			printf("HELP (Use the following commands for targeted help)\n\n");
+
+		String COMMAND = createString();
+		String DISCRIPTION = createString();
+		String USAGE = createString();
+		int flag = 0;
+		char* next = strtok(NULL, "\n");
+		if (next == NULL) {
+			printf("*****************HELP*****************\n");
+			printf("(Use the following commands for targeted help)\n");
 			printf("help mv -> Move a file\n");
 			printf("help cp -> Copy a file\n");
 			printf("help ls -> List files in directitory\n");
@@ -67,44 +74,55 @@ void commandSwitch(char command[100], char *path)
 			printf("help cdir -> Change the Directitory\n");
 			printf("help nf -> Create a NewFile\n");
 			printf("help exit -> Exit the Application\n");
+			printf("**************************************\n");
+			flag = 1;
 		}
-		else if (strcmp(commandName, "help mv\n") == 0) {
-			printf("COMMAND *mv* HELP\n");
-			printf("DISCRIPTION: Move a file from dir x to dir y\n");
-			printf("USAGE: *mv SOURCE DESTINATION*\n");
+		else if (strcmp(next, "mv") == 0) {
+			COMMAND = "mv";
+			DISCRIPTION = "Move a file from dir x to dir y";
+			USAGE = "mv SOURCE DESTINATION";
 		}
-		else if (strcmp(commandName, "help cp\n") == 0) {
-			printf("COMMAND *cp* HELP\n");
-			printf("DISCRIPTION: Move a file from dir x to dir y\n");
-			printf("USAGE: *mv SOURCE DESTINATION*\n");
+		else if (strcmp(next, "cp") == 0) {
+			COMMAND = "cp* ";
+			DISCRIPTION = "Move a file from dir x to dir y";
+			USAGE = "mv SOURCE DESTINATION";
 		}
-		else if (strcmp(commandName, "help ls\n") == 0) {
-			printf("COMMAND *ls* HELP\n");
-			printf("DISCRIPTION: List all files in the current directitory\n");
-			printf("USAGE: *ls*\n");
+		else if (strcmp(next, "ls") == 0) {
+			COMMAND = "ls";
+			DISCRIPTION = "List all files in the current directitory";
+			USAGE = "ls";
 		}
-		else if (strcmp(commandName, "help ndir\n") == 0) {
-			printf("COMMAND *ndir* HELP\n");
-			printf("DISCRIPTION: Create a new directitory\n");
-			printf("USAGE: *ndir DIR_PATH*\n");
+		else if (strcmp(next, "ndir") == 0) {
+			COMMAND = "ndir";
+			DISCRIPTION = "Create a new directitory";
+			USAGE = "ndir DIR_PATH";
 		}
-		else if (strcmp(commandName, "help cdir\n") == 0) {
-			printf("COMMAND *cdir* HELP\n");
-			printf("DISCRIPTION: Change the directitory\n");
-			printf("USAGE: *cdir DIR_PATH*\n");
+		else if (strcmp(next, "cdir") == 0) {
+			COMMAND = "cdir";
+			DISCRIPTION = "Change the directitory";
+			USAGE = "cdir DIR_PATH";
 		}
-		else if (strcmp(commandName, "help nf\n") == 0) {
-			printf("COMMAND *nf* HELP\n");
-			printf("DISCRIPTION: Create a NewFile\n");
-			printf("USAGE: *nf DIR_PATH*\n");
+		else if (strcmp(next, "nf") == 0) {
+			COMMAND = "nf";
+			DISCRIPTION = "Create a NewFile";
+			USAGE = "nf DIR_PATH";
 		}
-		else if (strcmp(commandName, "help dir\n") == 0) {
-			printf("COMMAND *dir* HELP\n");
-			printf("DISCRIPTION: Display the current selected directitory\n");
-			printf("USAGE: *dir*\n");
+		else if (strcmp(next, "dir") == 0) {
+			COMMAND = "dir";
+			DISCRIPTION = "Display the current selected directitory";
+			USAGE = "dir";
 		}
 		else {
-			printf("Invalid help command/n");
+			printf("Invalid help command\n");
+			flag = 1;
+		}
+
+		if (flag == 0) {
+			printf("*****************HELP*****************\n");
+			printf("COMMAND \t%s \n", COMMAND);
+			printf("DESCRIPTION: \t%s\n", DISCRIPTION);
+			printf("USAGE: \t\t%s\n", USAGE);
+			printf("**************************************\n");
 		}
 		
 	}
