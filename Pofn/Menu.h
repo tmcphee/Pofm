@@ -55,6 +55,14 @@ void commandSwitch(char command[100], char *path)
     {
         exitFileExplorer = true;
     }
+	else if (strcmp(commandName, "cat") == 0 || strcmp(commandName, "cat\n") == 0) {
+		char* CAT = "                      /^--^\\     /^--^\\     /^--^\\ \n                      \\____/     \\____/     \\____/ \n                     /      \\   /      \\   /      \\ \nKAT                 |        | |        | |        | \n                     \\__  __/   \\__  __/   \\__  __/ \n|^|^|^|^|^|^|^|^|^|^|^|^\\ \\^|^|^|^/ /^|^|^|^|^\\ \\^|^|^|^|^|^|^|^|^|^|^|^| \n| | | | | | | | | | | | |\\ \\| | |/ /| | | | | | \\ \\ | | | | | | | | | | | \n########################/ /######\\ \\###########/ /####################### \n| | | | | | | | | | | | \\/| | | | \\/| | | | | |\\/ | | | | | | | | | | | | \n|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|\n";
+	
+		for (int i = 0; i < 638; i++){
+			printf("%c", CAT[i]);
+		}
+	
+	}
 	else if (strcmp(commandName, "help") == 0 || strcmp(commandName, "help\n") == 0)
 	{
 		String DISCRIPTION = createString();
@@ -80,7 +88,7 @@ void commandSwitch(char command[100], char *path)
 		}
 		else if (strcmp(next, "cp") == 0) {
 			scanString(DISCRIPTION,  "Copy a file from dir x to dir y");
-			scanString(USAGE,  "mv SOURCE DESTINATION");
+			scanString(USAGE,  "cp SOURCE DESTINATION FILENAME");
 		}
 		else if (strcmp(next, "ls") == 0) {
 			scanString(DISCRIPTION,  "List all files in the current directitory");
