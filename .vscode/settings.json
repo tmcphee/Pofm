@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "limits.h": "c"
+        "limits.h": "c",
+        "createfile.h": "c",
+        "deletefile.h": "c"
     }
 }

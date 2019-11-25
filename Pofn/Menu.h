@@ -3,13 +3,37 @@
 
 bool exitFileExplorer = false;
 
-void commandSwitch(char command[100], char *path)
+void commandSwitch(char command[255], char *path)
 {
     char *commandName = strtok(command, " ");
-
     if (strcmp(commandName, "dir") == 0 || strcmp(commandName, "dir\n") == 0)
     {
         displayDirectory(path);
+    }
+    else if (!strcmp(commandName, "cp") || !strcmp(commandName, "cp\n"))
+    {
+        char *commandParam = strtok(NULL, " ");
+        char *commandParam2 = strtok(NULL, " ");
+        char *commandParam3 = strtok(NULL, "\n");
+        if (commandParam == NULL | commandParam2 == NULL | commandParam3 == NULL)
+        {
+            printf("Please enter a valid number of arguments\n");
+            return;
+        }
+        moveFileLocal(0, commandParam, commandParam2, commandParam3);
+    }
+    else if (!strcmp(commandName, "mv") || !strcmp(commandName, "mv\n"))
+    {
+        char *commandParam = strtok(NULL, " ");
+        char *commandParam2 = strtok(NULL, " ");
+        char *commandParam3 = strtok(NULL, "\n");
+        if (commandParam == NULL | commandParam2 == NULL | commandParam3 == NULL)
+        {
+            printf("Please enter a valid number of arguments\n");
+            return;
+        }
+
+        moveFileLocal(1, commandParam, commandParam2, commandParam3);
     }
     else if (!strcmp(commandName, "ndir") || !strcmp(commandName, "ndir\n"))
     {
@@ -55,77 +79,86 @@ void commandSwitch(char command[100], char *path)
     {
         exitFileExplorer = true;
     }
-	else if (strcmp(commandName, "help") == 0 || strcmp(commandName, "help\n") == 0)
-	{
+    else if (strcmp(commandName, "help") == 0 || strcmp(commandName, "help\n") == 0)
+    {
 
-		String COMMAND = createString();
-		String DISCRIPTION = createString();
-		String USAGE = createString();
-		int flag = 0;
-		char* next = strtok(NULL, "\n");
-		if (next == NULL) {
-			printf("*****************HELP*****************\n");
-			printf("(Use the following commands for targeted help)\n");
-			printf("help mv -> Move a file\n");
-			printf("help cp -> Copy a file\n");
-			printf("help ls -> List files in directitory\n");
-			printf("help dir -> Display directitory\n");
-			printf("help ndir -> Create a new Directitory\n");
-			printf("help cdir -> Change the Directitory\n");
-			printf("help nf -> Create a NewFile\n");
-			printf("help exit -> Exit the Application\n");
-			printf("**************************************\n");
-			flag = 1;
-		}
-		else if (strcmp(next, "mv") == 0) {
-			scanString(COMMAND, "mv");
-			scanString(DISCRIPTION,  "Move a file from dir x to dir y");
-			scanString(USAGE,  "mv SOURCE DESTINATION");
-		}
-		else if (strcmp(next, "cp") == 0) {
-			scanString(COMMAND, "cp");
-			scanString(DISCRIPTION,  "Copy a file from dir x to dir y");
-			scanString(USAGE,  "mv SOURCE DESTINATION");
-		}
-		else if (strcmp(next, "ls") == 0) {
-			scanString(COMMAND, "ls");
-			scanString(DISCRIPTION,  "List all files in the current directitory");
-			scanString(USAGE,  "ls");
-		}
-		else if (strcmp(next, "ndir") == 0) {
-			scanString(COMMAND, "ndir");
-			scanString(DISCRIPTION,  "Create a new directitory");
-			scanString(USAGE,  "ndir DIR_PATH");
-		}
-		else if (strcmp(next, "cdir") == 0) {
-			scanString(COMMAND, "cdir");
-			scanString(DISCRIPTION,  "Change the directitory");
-			scanString(USAGE,  "cdir DIR_PATH");
-		}
-		else if (strcmp(next, "nf") == 0) {
-			scanString(COMMAND, "nf");
-			scanString(DISCRIPTION, "Create a NewFile");
-			scanString(USAGE, "nf DIR_PATH");
-		}
-		else if (strcmp(next, "dir") == 0) {
-			scanString(COMMAND, "dir");
-			scanString(DISCRIPTION,  "Display the current selected directitory");
-			scanString(USAGE,  "dir");
-		}
-		else {
-			printf("Invalid help command\n");
-			flag = 1;
-		}
+        String COMMAND = createString();
+        String DISCRIPTION = createString();
+        String USAGE = createString();
+        int flag = 0;
+        char *next = strtok(NULL, "\n");
+        if (next == NULL)
+        {
+            printf("*****************HELP*****************\n");
+            printf("(Use the following commands for targeted help)\n");
+            printf("help mv -> Move a file\n");
+            printf("help cp -> Copy a file\n");
+            printf("help ls -> List files in directitory\n");
+            printf("help dir -> Display directitory\n");
+            printf("help ndir -> Create a new Directitory\n");
+            printf("help cdir -> Change the Directitory\n");
+            printf("help nf -> Create a NewFile\n");
+            printf("help exit -> Exit the Application\n");
+            printf("**************************************\n");
+            flag = 1;
+        }
+        else if (strcmp(next, "mv") == 0)
+        {
+            scanString(COMMAND, "mv");
+            scanString(DISCRIPTION, "Move a file from dir x to dir y");
+            scanString(USAGE, "mv SOURCE DESTINATION");
+        }
+        else if (strcmp(next, "cp") == 0)
+        {
+            scanString(COMMAND, "cp");
+            scanString(DISCRIPTION, "Copy a file from dir x to dir y");
+            scanString(USAGE, "mv SOURCE DESTINATION");
+        }
+        else if (strcmp(next, "ls") == 0)
+        {
+            scanString(COMMAND, "ls");
+            scanString(DISCRIPTION, "List all files in the current directitory");
+            scanString(USAGE, "ls");
+        }
+        else if (strcmp(next, "ndir") == 0)
+        {
+            scanString(COMMAND, "ndir");
+            scanString(DISCRIPTION, "Create a new directitory");
+            scanString(USAGE, "ndir DIR_PATH");
+        }
+        else if (strcmp(next, "cdir") == 0)
+        {
+            scanString(COMMAND, "cdir");
+            scanString(DISCRIPTION, "Change the directitory");
+            scanString(USAGE, "cdir DIR_PATH");
+        }
+        else if (strcmp(next, "nf") == 0)
+        {
+            scanString(COMMAND, "nf");
+            scanString(DISCRIPTION, "Create a NewFile");
+            scanString(USAGE, "nf DIR_PATH");
+        }
+        else if (strcmp(next, "dir") == 0)
+        {
+            scanString(COMMAND, "dir");
+            scanString(DISCRIPTION, "Display the current selected directitory");
+            scanString(USAGE, "dir");
+        }
+        else
+        {
+            printf("Invalid help command\n");
+            flag = 1;
+        }
 
-		if (flag == 0) {
-			printf("*****************HELP*****************\n");
-			printf("COMMAND \t%s \n", putString(COMMAND));
-			printf("DESCRIPTION: \t%s\n", putString(DISCRIPTION));
-			printf("USAGE: \t\t%s\n", putString(USAGE));
-			printf("**************************************\n");
-		}
-		
-	}
+        if (flag == 0)
+        {
+            printf("*****************HELP*****************\n");
+            printf("COMMAND \t%s \n", putString(COMMAND));
+            printf("DESCRIPTION: \t%s\n", putString(DISCRIPTION));
+            printf("USAGE: \t\t%s\n", putString(USAGE));
+            printf("**************************************\n");
+        }
+    }
     else
     {
         printf("Please enter a valid command!\n");
@@ -140,7 +173,7 @@ int menuStart()
     while (!exitFileExplorer)
     {
         printf("%s :/> ", currPath);
-        fgets(command, 100, stdin);
+        fgets(command, 255, stdin);
         commandSwitch(command, currPath);
         currPath = currentDirectory();
     }
