@@ -57,7 +57,6 @@ void commandSwitch(char command[100], char *path)
     }
 	else if (strcmp(commandName, "help") == 0 || strcmp(commandName, "help\n") == 0)
 	{
-		String COMMAND = createString();
 		String DISCRIPTION = createString();
 		String USAGE = createString();
 		int flag = 0;
@@ -76,32 +75,26 @@ void commandSwitch(char command[100], char *path)
 			flag = 1;
 		}
 		else if (strcmp(next, "mv") == 0) {
-			scanString(COMMAND, "mv");
 			scanString(DISCRIPTION,  "Move a file from dir x to dir y");
 			scanString(USAGE,  "mv SOURCE DESTINATION");
 		}
 		else if (strcmp(next, "cp") == 0) {
-			scanString(COMMAND, "cp");
 			scanString(DISCRIPTION,  "Copy a file from dir x to dir y");
 			scanString(USAGE,  "mv SOURCE DESTINATION");
 		}
 		else if (strcmp(next, "ls") == 0) {
-			scanString(COMMAND, "ls");
 			scanString(DISCRIPTION,  "List all files in the current directitory");
 			scanString(USAGE,  "ls");
 		}
 		else if (strcmp(next, "ndir") == 0) {
-			scanString(COMMAND, "ndir");
 			scanString(DISCRIPTION,  "Create a new directitory");
 			scanString(USAGE,  "ndir DIR_PATH");
 		}
 		else if (strcmp(next, "cdir") == 0) {
-			scanString(COMMAND, "cdir");
 			scanString(DISCRIPTION,  "Change the directitory");
 			scanString(USAGE,  "cdir DIR_PATH");
 		}
 		else if (strcmp(next, "nf") == 0) {
-			scanString(COMMAND, "nf");
 			scanString(DISCRIPTION, "Create a NewFile");
 			scanString(USAGE, "nf DIR_PATH");
 		}
@@ -112,7 +105,7 @@ void commandSwitch(char command[100], char *path)
 
 		if (flag == 0) {
 			printf("*****************HELP*****************\n");
-			printf("COMMAND \t%s \n", putString(COMMAND));
+			printf("COMMAND \t%s \n", next);
 			printf("DESCRIPTION: \t%s\n", putString(DISCRIPTION));
 			printf("USAGE: \t\t%s\n", putString(USAGE));
 			printf("**************************************\n");
