@@ -78,39 +78,39 @@ void commandSwitch(char command[100], char *path)
 			flag = 1;
 		}
 		else if (strcmp(next, "mv") == 0) {
-			COMMAND = "mv";
-			DISCRIPTION = "Move a file from dir x to dir y";
-			USAGE = "mv SOURCE DESTINATION";
+			scanString(COMMAND, "mv");
+			scanString(DISCRIPTION,  "Move a file from dir x to dir y");
+			scanString(USAGE,  "mv SOURCE DESTINATION");
 		}
 		else if (strcmp(next, "cp") == 0) {
-			COMMAND = "cp* ";
-			DISCRIPTION = "Move a file from dir x to dir y";
-			USAGE = "mv SOURCE DESTINATION";
+			scanString(COMMAND, "cp");
+			scanString(DISCRIPTION,  "Copy a file from dir x to dir y");
+			scanString(USAGE,  "mv SOURCE DESTINATION");
 		}
 		else if (strcmp(next, "ls") == 0) {
-			COMMAND = "ls";
-			DISCRIPTION = "List all files in the current directitory";
-			USAGE = "ls";
+			scanString(COMMAND, "ls");
+			scanString(DISCRIPTION,  "List all files in the current directitory");
+			scanString(USAGE,  "ls");
 		}
 		else if (strcmp(next, "ndir") == 0) {
-			COMMAND = "ndir";
-			DISCRIPTION = "Create a new directitory";
-			USAGE = "ndir DIR_PATH";
+			scanString(COMMAND, "ndir");
+			scanString(DISCRIPTION,  "Create a new directitory");
+			scanString(USAGE,  "ndir DIR_PATH");
 		}
 		else if (strcmp(next, "cdir") == 0) {
-			COMMAND = "cdir";
-			DISCRIPTION = "Change the directitory";
-			USAGE = "cdir DIR_PATH";
+			scanString(COMMAND, "cdir");
+			scanString(DISCRIPTION,  "Change the directitory");
+			scanString(USAGE,  "cdir DIR_PATH");
 		}
 		else if (strcmp(next, "nf") == 0) {
-			COMMAND = "nf";
-			DISCRIPTION = "Create a NewFile";
-			USAGE = "nf DIR_PATH";
+			scanString(COMMAND, "nf");
+			scanString(DISCRIPTION, "Create a NewFile");
+			scanString(USAGE, "nf DIR_PATH");
 		}
 		else if (strcmp(next, "dir") == 0) {
-			COMMAND = "dir";
-			DISCRIPTION = "Display the current selected directitory";
-			USAGE = "dir";
+			scanString(COMMAND, "dir");
+			scanString(DISCRIPTION,  "Display the current selected directitory");
+			scanString(USAGE,  "dir");
 		}
 		else {
 			printf("Invalid help command\n");
@@ -119,9 +119,9 @@ void commandSwitch(char command[100], char *path)
 
 		if (flag == 0) {
 			printf("*****************HELP*****************\n");
-			printf("COMMAND \t%s \n", COMMAND);
-			printf("DESCRIPTION: \t%s\n", DISCRIPTION);
-			printf("USAGE: \t\t%s\n", USAGE);
+			printf("COMMAND \t%s \n", putString(COMMAND));
+			printf("DESCRIPTION: \t%s\n", putString(DISCRIPTION));
+			printf("USAGE: \t\t%s\n", putString(USAGE));
 			printf("**************************************\n");
 		}
 		
