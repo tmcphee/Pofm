@@ -7,7 +7,7 @@ void commandSwitch(char command[100], char *path)
 {
     char *commandName = strtok(command, " ");
 
-    if (strcmp(commandName, "dir") == 0 || strcmp(commandName, "dir\n") == 0)
+    if (strcmp(commandName, "ls") == 0 || strcmp(commandName, "ls\n") == 0)
     {
         displayDirectory(path);
     }
@@ -57,7 +57,6 @@ void commandSwitch(char command[100], char *path)
     }
 	else if (strcmp(commandName, "help") == 0 || strcmp(commandName, "help\n") == 0)
 	{
-
 		String COMMAND = createString();
 		String DISCRIPTION = createString();
 		String USAGE = createString();
@@ -66,14 +65,13 @@ void commandSwitch(char command[100], char *path)
 		if (next == NULL) {
 			printf("*****************HELP*****************\n");
 			printf("(Use the following commands for targeted help)\n");
-			printf("help mv -> Move a file\n");
-			printf("help cp -> Copy a file\n");
-			printf("help ls -> List files in directitory\n");
-			printf("help dir -> Display directitory\n");
-			printf("help ndir -> Create a new Directitory\n");
-			printf("help cdir -> Change the Directitory\n");
-			printf("help nf -> Create a NewFile\n");
-			printf("help exit -> Exit the Application\n");
+			printf("help mv \t--->\t Move a file\n");
+			printf("help cp \t--->\t Copy a file\n");
+			printf("help ls \t--->\t List files in directitory\n");
+			printf("help ndir \t--->\t Create a new Directitory\n");
+			printf("help cdir \t--->\t Change the Directitory\n");
+			printf("help nf \t--->\t Create a NewFile\n");
+			printf("help exit \t--->\t Exit the Application\n");
 			printf("**************************************\n");
 			flag = 1;
 		}
@@ -106,11 +104,6 @@ void commandSwitch(char command[100], char *path)
 			scanString(COMMAND, "nf");
 			scanString(DISCRIPTION, "Create a NewFile");
 			scanString(USAGE, "nf DIR_PATH");
-		}
-		else if (strcmp(next, "dir") == 0) {
-			scanString(COMMAND, "dir");
-			scanString(DISCRIPTION,  "Display the current selected directitory");
-			scanString(USAGE,  "dir");
 		}
 		else {
 			printf("Invalid help command\n");
