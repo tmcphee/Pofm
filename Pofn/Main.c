@@ -1,4 +1,3 @@
-#include "Menu.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <dirent.h>
@@ -12,8 +11,10 @@
 #include "RenameFile.h"
 #include "CloseFile.h"
 #include "TextEdit.h"
+#include "Menu.h"
 
 int main(int argc, char *argv[])
 {
-	menuStart();
+	//menuStart();
+	copyFileLocal();
 }

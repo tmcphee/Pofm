@@ -1,7 +1,6 @@
 ﻿  Main.c
+C:\Users\Troy\source\repos\Pofm\Pofn\TextEdit.h(17,7): warning C4101: 'buff': unreferenced local variable
 C:\Users\Troy\source\repos\Pofm\Pofn\Directories\ReadDir.h(16,11): warning C4013: 'getcwd' undefined; assuming extern returning int
 C:\Users\Troy\source\repos\Pofm\Pofn\Directories\ReadDir.h(24,10): warning C4013: 'chdir' undefined; assuming extern returning int
 C:\Users\Troy\source\repos\Pofm\Pofn\Directories\MakeDir.h(38,29): warning C4013: 'mkdir' undefined; assuming extern returning int
-C:\Users\Troy\source\repos\Pofm\Pofn\Menu.h(46,38): warning C4013: 'createFileLocal' undefined; assuming extern returning int
-C:\Users\Troy\source\repos\Pofm\Pofn\TextEdit.h(17,7): warning C4101: 'buff': unreferenced local variable
   Pofn.vcxproj -> C:\Users\Troy\source\repos\Pofm\x64\Debug\Pofn.exe

@@ -1,6 +1,6 @@
 #pragma once
 #include "liststring.h"
-//fix file extension, instead of testfile.png -> testfile.png-copy | testfile.png -> testfile-copy.png
+//Copys a file into the same directory it comes from
 
 void copyFileLocal() {
 	//Variables
@@ -18,6 +18,8 @@ void copyFileLocal() {
 	long file_length;
 	FILE* file; //file to be moved
 	FILE* filedest;//File to be created
+	int extindex = 0;
+	char copy[6] = "-Copy";
 
 	//dir = opendir(".");
 	//Get user input need : name of file ex. c/users/jack/filename.png	folder to move file to ex. c/users/jack/newfolder new filename
@@ -59,18 +61,26 @@ void copyFileLocal() {
 	}
 
 	//Windows uses \ Linux and Mac uses / Make file path based on OS needed for cross platform
+
 #ifdef _WIN32
 	addChar(source, (char)(92));
 	scanString(source, n);
 	stringCopy(destination, source);
-	scanString(destination, "-Copy");
 #else
 	addChar(source, (char)(92));
 	scanString(source, n);
 	stringCopy(destination, source);
-	scanString(destination, "-Copy");
+	
 #endif
-
+	for (int i = stringLength(destination); i >= 0; i--) {
+		if (sgetChar(destination, i) == '.') {
+			extindex = i;
+			break;
+		}
+	}
+	for (int i = 0; i < 5; i++) {
+		addCharIndex(destination, copy[i], extindex + i);
+	}
 	free(src);
 	src = putString(source);
 	dest = putString(destination);
