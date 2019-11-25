@@ -1,3 +1,4 @@
+#pragma once
 #ifndef liststring_h
 #define liststring_h
 

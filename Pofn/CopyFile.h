@@ -1,4 +1,5 @@
-
+#pragma once
+#include "liststring.h"
 //fix file extension, instead of testfile.png -> testfile.png-copy | testfile.png -> testfile-copy.png
 
 void copyFileLocal() {

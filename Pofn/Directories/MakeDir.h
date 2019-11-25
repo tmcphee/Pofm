@@ -7,7 +7,7 @@
 
 const char *parentDirectory(const char *path)
 {
-    char *tempPath = strdup(path);
+    char *tempPath = _strdup(path);
     char *token = strtok(tempPath, "/");
     char *newPath = (char *)malloc(sizeof(char) * MAXPATHLENGTH);
     memset(newPath, '\0', MAXPATHLENGTH);
@@ -15,7 +15,7 @@ const char *parentDirectory(const char *path)
     temp = "";
     while (token != NULL)
     {
-        temp = strdup(token);
+        temp = _strdup(token);
         token = strtok(NULL, "/");
         if (token != NULL)
         {
@@ -23,7 +23,7 @@ const char *parentDirectory(const char *path)
             newPath = strcat(newPath, "/");
         }
     }
-    const char *constNewPath = strdup(newPath);
+    const char *constNewPath = _strdup(newPath);
     free(newPath);
     free(temp);
     return constNewPath;

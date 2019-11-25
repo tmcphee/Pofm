@@ -1,6 +1,6 @@
 #pragma once
 
-void createFileLocal()
+int createFileLocal()
 {
 	DIR *source_folder; //where the file should be created
 	char *fpath, *buff, *foldpath;
@@ -21,7 +21,7 @@ void createFileLocal()
 		perror("The following error occured: ");
 		closedir(source_folder);
 		free(foldpath);
-		return;
+		return 0;
 	}
 	free(foldpath);
 
@@ -32,7 +32,7 @@ void createFileLocal()
 #ifdef _WIN32
 	addChar(filepath, (char)(92));
 #else
-	addChar(filepath, (char)(92));
+	addChar(filepath, (char)(47));
 #endif
 
 	stringCat(filepath, filename);
@@ -57,4 +57,5 @@ void createFileLocal()
 	freeString(filename);
 	freeString(filepath);
 	freeString(userinput);
+	return 1;
 }

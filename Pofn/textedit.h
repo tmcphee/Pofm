@@ -4,7 +4,7 @@
 Remove all text in a file, Show the content of a text file, with the ability to pause per page.The number
 of lines per page can be specified by the user.*/
 //To use pass a choice input by user in start menu
-void editText(char choice) {
+void editText() {
 	DIR* source_folder;		//actual source and destination DIR pointers
 	FILE* txt;
 	String file_path = createString();	//file path string
@@ -13,8 +13,15 @@ void editText(char choice) {
 	String append = createString();
 	char *fpath, *name;	//file path c string
 	char action = 'C';
-	char ch;
+	char ch, choice;
+	char buff[30];
 	int index = 0, numlines;
+
+	printf("Enter the operation you would like to perform \n");
+	printf("O- read file \nD- remove all text from file \nI- insert text at position \nA- append text\nChoice:  ");
+	scanf("%c", &choice);
+	getchar();
+	choice = toupper(choice);
 
 	printf("Enter the folder of the file you wish to open: ");
 	stringGets(file_path);
@@ -34,7 +41,7 @@ void editText(char choice) {
 		addChar(file_path, (char)(92));
 		scanString(file_path, name);
 	#else
-		addChar(file_path, (char)(92));
+		addChar(file_path, (char)(47));
 		scanString(file_path, name);
 	#endif
 	free(name);
@@ -70,8 +77,10 @@ void editText(char choice) {
 				}
 			
 				printf("Enter a choice [C] to continue [Q] to quit: ");
-				fflush(stdin);
+				getchar();
 				action = getchar();
+				action = toupper(action);
+				
 				if (action == 'Q') {
 					break;
 				}
@@ -93,18 +102,21 @@ void editText(char choice) {
 				return;
 			}
 			file = ReadFileLocal(txt);
+			fclose(txt);
+			txt = fopen(name, "w");
 			printf("Enter the position you wish to insert the text at: ");
 			scanf("%d", &index);
 			if (!(index < stringLength(file) && index >= 0)) { printf("Invalid index entered"); return; };
 			printf("Enter the text you wish to append to the file, press enter to submit: ");
+			getchar();
 			stringGets(append);
 
 			for (int i = 0; i < stringLength(append); i++) {
 				if (i % 150 == 0 && i != 0) {
-					addCharIndex(file, '\n', index);
+					addCharIndex(file, '\n', index + i);
 				}
 				ch = sgetChar(append, i);
-				addCharIndex(file, ch, index);
+				addCharIndex(file, ch, index + i);
 			}
 
 			for (int i = 0; i < stringLength(file); i++) {
@@ -125,15 +137,7 @@ void editText(char choice) {
 			stringGets(append);
 
 			for (int i = 0; i < stringLength(append); i++) {
-				if (i % 150 == 0 && i != 0) {
-					addChar(file, '\n');
-				}
 				ch = sgetChar(append, i);
-				addChar(file, ch);
-			}
-
-			for (int i = 0; i < stringLength(file); i++) {
-				ch = sgetChar(file, i);
 				fputc(ch, txt);
 			}
 			free(file);

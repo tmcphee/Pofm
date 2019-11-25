@@ -76,12 +76,12 @@ void moveFileLocal(int mode) {
 	#ifdef _WIN32
 		addChar(source, (char)(92));
 		scanString(source, n);
-		addChar(destination, (char)(92));
+		addChar(destination, (char)(47));
 		scanString(destination, n);
 	#else
 		addChar(source, (char)(92));
 		scanString(source, n);
-		addChar(destination, (char)(92));
+		addChar(destination, (char)(47));
 		scanString(destination, n);
 	#endif
 

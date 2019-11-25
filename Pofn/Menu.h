@@ -43,7 +43,7 @@ void commandSwitch(char command[100], char *path)
             printf("Please enter a directory path or name\n");
             return;
         }
-        int succeed = CreateFile(commandParam);
+        int succeed = createFileLocal(commandParam);
         if (succeed == 1)
             printf("Invalid directory path or name\n");
         else if (succeed == 2)

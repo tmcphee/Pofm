@@ -51,7 +51,7 @@ void renameLocal() {
 		scanString(source, n);
 		scanString(destination, newname);
 	#else
-		addChar(source, (char)(92));
+		addChar(source, (char)(47));
 		scanString(source, n);
 		stringCopy(destination, source);
 		scanString(destination, "-Copy");

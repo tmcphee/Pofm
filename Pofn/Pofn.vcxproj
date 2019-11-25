@@ -33,7 +33,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.c" />
-    <ClCompile Include="WriteFile.c" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="text.txt" />
