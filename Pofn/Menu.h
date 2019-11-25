@@ -63,6 +63,14 @@ void commandSwitch(char command[100], char *path)
 		}
 	
 	}
+	else if (strcmp(commandName, "dog") == 0 || strcmp(commandName, "dog\n") == 0) {
+		char* DOG = "         ,--._______,-. \n       ,\',\'  ,    .  ,_`-. \n      / /  ,\' , _` ``. |  )       `-.. \n     (,\';\'\"\"`/ \'\"`-._ ` \\/ ______    \\\\ \n       : ,o.-`- ,o.  )\` -\'      `---.)) \n       : , d8b ^-.   \'|   `.      `    `. \n       |/ __:_     `. |  ,  `       `    \\ \n       | ( ,-.`-.    ;\'  ;   `       :    ; \n       | |  ,   `.      /     ;      :    \\ \n       ;-\'`:::._,`.__),\'             :     ; \n      / ,  `-   `--                  ;     | \n     /  \\                   `       ,      | \n    (    `     :              :    ,\\      | \n     \\   `.    :     :        :  ,\'  \\    : \n      \\    `|-- `     \\ ,\'    ,-\'     :-.-\'; \n      :     |`--.______;     |        :    : \n       :    /           |    |         |   \\ \n       |    ;           ;    ;        /     ; \n     _/--\' |   -hrr-   :`-- /         \\_:_:_| \n   ,\',\',\'  |           |___ \\ \n   `^._,--\'           / , , .) \n                      `-._,-\' \n";
+
+		for (int i = 0; i < 908; i++) {
+			printf("%c", DOG[i]);
+		}
+
+	}
 	else if (strcmp(commandName, "help") == 0 || strcmp(commandName, "help\n") == 0)
 	{
 		String DISCRIPTION = createString();
