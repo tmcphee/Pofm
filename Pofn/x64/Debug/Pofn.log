@@ -1,6 +1,7 @@
 ﻿  Main.c
-C:\Users\Troy\source\repos\Pofm\Pofn\TextEdit.h(17,7): warning C4101: 'buff': unreferenced local variable
+C:\Users\Troy\source\repos\Pofm\Pofn\TextEdit.h(116,94): warning C4033: 'editText' must return a value
 C:\Users\Troy\source\repos\Pofm\Pofn\Directories\ReadDir.h(16,11): warning C4013: 'getcwd' undefined; assuming extern returning int
 C:\Users\Troy\source\repos\Pofm\Pofn\Directories\ReadDir.h(24,10): warning C4013: 'chdir' undefined; assuming extern returning int
 C:\Users\Troy\source\repos\Pofm\Pofn\Directories\MakeDir.h(38,29): warning C4013: 'mkdir' undefined; assuming extern returning int
+C:\Users\Troy\source\repos\Pofm\Pofn\TextEdit.h(163): warning C4715: 'editText': not all control paths return a value
   Pofn.vcxproj -> C:\Users\Troy\source\repos\Pofm\x64\Debug\Pofn.exe

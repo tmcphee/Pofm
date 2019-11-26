@@ -14,7 +14,7 @@ int renameLocal(char *sourcec, char *old, char *new)
 	int found = 0, result = 0;
 	scanString(source, sourcec);
 	scanString(name, old);
-	scanString(rename, new);
+	scanString(renames, new);
 
 	n = putString(name);
 	filepath = putString(source);

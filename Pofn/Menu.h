@@ -16,7 +16,7 @@ void commandSwitch(char command[255], char *path)
         char *commandParam = strtok(NULL, " ");
         char *commandParam2 = strtok(NULL, " ");
         char *commandParam3 = strtok(NULL, "\n");
-        if (commandParam == NULL | commandParam2 == NULL | commandParam3 == NULL)
+        if (commandParam == NULL || commandParam2 == NULL || commandParam3 == NULL)
         {
             printf("Please enter a valid number of arguments\n");
             return;
@@ -28,7 +28,7 @@ void commandSwitch(char command[255], char *path)
         char *commandParam = strtok(NULL, " ");
         char *commandParam2 = strtok(NULL, " ");
         char *commandParam3 = strtok(NULL, "\n");
-        if (commandParam == NULL | commandParam2 == NULL | commandParam3 == NULL)
+        if (commandParam == NULL || commandParam2 == NULL || commandParam3 == NULL)
         {
             printf("Please enter a valid number of arguments\n");
             return;
@@ -64,7 +64,7 @@ void commandSwitch(char command[255], char *path)
     {
         char *commandParam = strtok(NULL, " ");
         char *commandParam2 = strtok(NULL, "\n");
-        if (commandParam == NULL | commandParam2 == NULL)
+        if (commandParam == NULL || commandParam2 == NULL)
         {
             printf("Please enter a valid number of arguments\n");
             return;
@@ -81,7 +81,7 @@ void commandSwitch(char command[255], char *path)
     {
         char *commandParam = strtok(NULL, " ");
         char *commandParam2 = strtok(NULL, "\n");
-        if (commandParam == NULL | commandParam2 == NULL)
+        if (commandParam == NULL || commandParam2 == NULL)
         {
             printf("Please enter a valid number of arguments\n");
             return;
@@ -100,7 +100,7 @@ void commandSwitch(char command[255], char *path)
         char *commandParam = strtok(NULL, " ");
         char *commandParam2 = strtok(NULL, " ");
         char *commandParam3 = strtok(NULL, "\n");
-        if (commandParam == NULL | commandParam2 == NULL | commandParam3 == NULL)
+        if (commandParam == NULL || commandParam2 == NULL || commandParam3 == NULL)
         {
             printf("Please enter a valid number of arguments\n");
             return;
@@ -123,15 +123,14 @@ void commandSwitch(char command[255], char *path)
     {
         char *commandParam = strtok(NULL, " ");
         char *commandParam2 = strtok(NULL, " ");
-        if (commandParam == NULL | commandParam2 == NULL)
+        if (commandParam == NULL || commandParam2 == NULL)
         {
             printf("Please enter a valid number of arguments\n");
             return;
         }
-        int succeed = editText();
+        int succeed = editText(commandParam, commandParam2);
         if (succeed == 1)
         {
-            printf("file renamed successfully.\n");
             printf("Unable to open Directory %s\n", commandParam);
         }
         else if (succeed == 2)
@@ -142,8 +141,6 @@ void commandSwitch(char command[255], char *path)
         {
             printf("Invalid index entered");
         }
-        else
-            perror("The following error occured");
     }
     else if (strcmp(commandName, "exit") == 0 || strcmp(commandName, "exit\n") == 0)
     {
