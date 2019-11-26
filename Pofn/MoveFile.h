@@ -126,7 +126,7 @@ void moveFileLocal(int mode, char *sourcec, char *destc, char *filenamec)
 	//Remove the original file
 	if (mode == 1)
 	{
-		deleteFile(1, putString(source));
+		deleteFile(1, putString(source), " ");
 	}
 	//freeing memory
 	free(destination_folder);

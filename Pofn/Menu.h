@@ -62,19 +62,88 @@ void commandSwitch(char command[255], char *path)
     }
     else if (strcmp(commandName, "nf") == 0 || strcmp(commandName, "nf\n") == 0)
     {
-        char *commandParam = strtok(NULL, "\n");
-        if (commandParam == NULL)
+        char *commandParam = strtok(NULL, " ");
+        char *commandParam2 = strtok(NULL, "\n");
+        if (commandParam == NULL | commandParam2 == NULL)
         {
-            printf("Please enter a directory path or name\n");
+            printf("Please enter a valid number of arguments\n");
             return;
         }
-        int succeed = createFileLocal(commandParam);
+        int succeed = createFileLocal(commandParam, commandParam2);
         if (succeed == 1)
             printf("Invalid directory path or name\n");
         else if (succeed == 2)
-            printf("Directory already created\n");
+            printf("Invalid file extension, only create files with .txt extenstion\n");
         else
-            printf("Directory successfully created\n");
+            printf("File successfully created\n");
+    }
+    else if (strcmp(commandName, "df") == 0 || strcmp(commandName, "df\n") == 0)
+    {
+        char *commandParam = strtok(NULL, " ");
+        char *commandParam2 = strtok(NULL, "\n");
+        if (commandParam == NULL | commandParam2 == NULL)
+        {
+            printf("Please enter a valid number of arguments\n");
+            return;
+        }
+        int succeed = deleteFile(0, commandParam, commandParam2);
+        if (succeed == 1)
+        {
+            printf("Unable to delete the file\n");
+            perror("The following error occurred");
+        }
+        else
+            printf("%s file deleted successfully.\n", commandParam2);
+    }
+    else if (strcmp(commandName, "rn") == 0 || strcmp(commandName, "rn\n") == 0)
+    {
+        char *commandParam = strtok(NULL, " ");
+        char *commandParam2 = strtok(NULL, " ");
+        char *commandParam3 = strtok(NULL, "\n");
+        if (commandParam == NULL | commandParam2 == NULL | commandParam3 == NULL)
+        {
+            printf("Please enter a valid number of arguments\n");
+            return;
+        }
+        int succeed = renameLocal(commandParam, commandParam2, commandParam3);
+        if (succeed == 1)
+        {
+            printf("Unable to open Directory %s\n", commandParam);
+            perror("The following error occured");
+        }
+        else if (succeed == 2)
+        {
+            printf("File %s could not be found it either isn't in this folder, or doesn't exist", commandParam2);
+            return;
+        }
+        else
+            printf("file renamed successfully.\n");
+    }
+    else if (strcmp(commandName, "textedit") == 0 || strcmp(commandName, "textedit\n") == 0)
+    {
+        char *commandParam = strtok(NULL, " ");
+        char *commandParam2 = strtok(NULL, " ");
+        if (commandParam == NULL | commandParam2 == NULL)
+        {
+            printf("Please enter a valid number of arguments\n");
+            return;
+        }
+        int succeed = editText();
+        if (succeed == 1)
+        {
+            printf("file renamed successfully.\n");
+            printf("Unable to open Directory %s\n", commandParam);
+        }
+        else if (succeed == 2)
+        {
+            printf("File %s does not exist.", commandParam2);
+        }
+        else if (succeed == 3)
+        {
+            printf("Invalid index entered");
+        }
+        else
+            perror("The following error occured");
     }
     else if (strcmp(commandName, "exit") == 0 || strcmp(commandName, "exit\n") == 0)
     {

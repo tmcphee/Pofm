@@ -1,6 +1,6 @@
 #pragma once
 
-int createFileLocal()
+int createFileLocal(char *sourcec, char *namec)
 {
 	DIR *source_folder; //where the file should be created
 	char *fpath, *buff, *foldpath;
@@ -10,8 +10,7 @@ int createFileLocal()
 	String userinput = createString();
 	FILE *userfile;
 
-	printf("Enter the folder which you would like to create the file in: ");
-	stringGets(filepath);
+	scanString(filepath, sourcec);
 	foldpath = putString(filepath);
 	source_folder = opendir(foldpath);
 
@@ -21,13 +20,12 @@ int createFileLocal()
 		perror("The following error occured: ");
 		closedir(source_folder);
 		free(foldpath);
-		return 0;
+		return 1;
 	}
 	free(foldpath);
 
 	closedir(source_folder);
-	printf("What should the name of the file be: ");
-	stringGets(filename);
+	scanString(filename, namec);
 
 #ifdef _WIN32
 	addChar(filepath, (char)(92));
@@ -37,6 +35,14 @@ int createFileLocal()
 
 	stringCat(filepath, filename);
 	fpath = putString(filepath);
+	char txt[5] = "txt.";
+	for (int i = 0; i < 4; i++)
+	{
+		if (sgetChar(filename, stringLength(filename) - (i + 1)) != txt[i])
+		{
+			return 2;
+		};
+	}
 	userfile = OpenFileLocal(fpath, "w");
 	printf("Continue to enter text until you are done, hit enter to submit text: \n");
 	stringGets(userinput);
@@ -57,5 +63,5 @@ int createFileLocal()
 	freeString(filename);
 	freeString(filepath);
 	freeString(userinput);
-	return 1;
+	return 0;
 }
