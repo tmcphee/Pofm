@@ -84,15 +84,18 @@ void commandSwitch(char command[100], char *path)
 			printf("help cp \t--->\t Copy a file\n");
 			printf("help ls \t--->\t List files in directitory\n");
 			printf("help ndir \t--->\t Create a new Directitory\n");
-			printf("help cdir \t--->\t Change the Directitory\n");
+			printf("help cd \t--->\t Change the Directitory\n");
 			printf("help nf \t--->\t Create a NewFile\n");
+			printf("help df \t--->\t Delete File\n");
+			printf("help rn \t--->\t Rename File\n");
+			printf("help textedit \t--->\t Edit a TextFile\n");
 			printf("help exit \t--->\t Exit the Application\n");
 			printf("**************************************\n");
 			flag = 1;
 		}
 		else if (strcmp(next, "mv") == 0) {
 			scanString(DISCRIPTION,  "Move a file from dir x to dir y");
-			scanString(USAGE,  "mv SOURCE DESTINATION");
+			scanString(USAGE,  "mv SOURCE DESTINATION FILENAME");
 		}
 		else if (strcmp(next, "cp") == 0) {
 			scanString(DISCRIPTION,  "Copy a file from dir x to dir y");
@@ -106,13 +109,25 @@ void commandSwitch(char command[100], char *path)
 			scanString(DISCRIPTION,  "Create a new directitory");
 			scanString(USAGE,  "ndir DIR_PATH");
 		}
-		else if (strcmp(next, "cdir") == 0) {
+		else if (strcmp(next, "cd") == 0) {
 			scanString(DISCRIPTION,  "Change the directitory");
-			scanString(USAGE,  "cdir DIR_PATH");
+			scanString(USAGE,  "cd DIR_PATH");
 		}
 		else if (strcmp(next, "nf") == 0) {
 			scanString(DISCRIPTION, "Create a NewFile");
-			scanString(USAGE, "nf DIR_PATH");
+			scanString(USAGE, "nf DIR_PATH FILENAME");
+		}
+		else if (strcmp(next, "df") == 0) {
+			scanString(DISCRIPTION, "Delete a File");
+			scanString(USAGE, "df DIR_PATH FILENAME");
+		}
+		else if (strcmp(next, "rn") == 0) {
+			scanString(DISCRIPTION, "Rename a File");
+			scanString(USAGE, "rn DIR_PATH FILENAME NEW_FILENAME");
+		}
+		else if (strcmp(next, "textedit") == 0) {
+			scanString(DISCRIPTION, "Edit a textfile");
+			scanString(USAGE, "textedit SOURCE FILENAME");
 		}
 		else {
 			printf("Invalid help command\n");
