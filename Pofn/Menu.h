@@ -132,14 +132,21 @@ void commandSwitch(char command[255], char *path)
         if (succeed == 1)
         {
             printf("Unable to open Directory %s\n", commandParam);
+            return;
         }
         else if (succeed == 2)
         {
             printf("File %s does not exist.", commandParam2);
+            return;
         }
         else if (succeed == 3)
         {
             printf("Invalid index entered");
+            return;
+        }
+        else
+        {
+            return;
         }
     }
     else if (strcmp(commandName, "exit") == 0 || strcmp(commandName, "exit\n") == 0)
