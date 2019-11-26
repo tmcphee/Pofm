@@ -53,7 +53,7 @@ void commandSwitch(char command[255], char *path)
             printf("Directory successfully created\n");
         chdir(commandParam);
     }
-    else if (strcmp(commandName, "cdir") == 0 || strcmp(commandName, "cdir\n") == 0)
+    else if (strcmp(commandName, "cd") == 0 || strcmp(commandName, "cd\n") == 0)
     {
         char *commandParam = strtok(NULL, "\n");
         int x = chdir(commandParam);
@@ -149,6 +149,24 @@ void commandSwitch(char command[255], char *path)
     {
         exitFileExplorer = true;
     }
+    else if (strcmp(commandName, "cat") == 0 || strcmp(commandName, "cat\n") == 0)
+    {
+        char *CAT = "                      /^--^\\     /^--^\\     /^--^\\ \n                      \\____/     \\____/     \\____/ \n                     /      \\   /      \\   /      \\ \nKAT                 |        | |        | |        | \n                     \\__  __/   \\__  __/   \\__  __/ \n|^|^|^|^|^|^|^|^|^|^|^|^\\ \\^|^|^|^/ /^|^|^|^|^\\ \\^|^|^|^|^|^|^|^|^|^|^|^| \n| | | | | | | | | | | | |\\ \\| | |/ /| | | | | |\\ \\| | | | | | | | | | | | \n########################/ /######\\ \\###########/ /####################### \n| | | | | | | | | | | | \\/| | | | \\/| | | | | |\\/ | | | | | | | | | | | | \n|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|_|\n";
+
+        for (int i = 0; i < 638; i++)
+        {
+            printf("%c", CAT[i]);
+        }
+    }
+    else if (strcmp(commandName, "dog") == 0 || strcmp(commandName, "dog\n") == 0)
+    {
+        char *DOG = "         ,--._______,-. \n       ,\',\'  ,    .  ,_`-. \n      / /  ,\' , _` ``. |  )       `-.. \n     (,\';\'\"\"`/ \'\"`-._ ` \\/ ______    \\\\ \n       : ,o.-`- ,o.  )` -\'      `---.)) \n       : , d8b ^-.   \'|   `.      `    `. \n       |/ __:_     `. |  ,  `       `    \\ \n       | ( ,-.`-.    ;\'  ;   `       :    ; \n       | |  ,   `.      /     ;      :    \\ \n       ;-\'`:::._,`.__),\'             :     ; \n      / ,  `-   `--                  ;     | \n     /  \\                   `       ,      | \n    (    `     :              :    ,\\      | \n     \\   `.    :     :        :  ,\'  \\    : \n      \\    `|-- `     \\ ,\'    ,-\'     :-.-\'; \n      :     |`--.______;     |        :    : \n       :    /           |    |         |   \\ \n       |    ;           ;    ;        /     ; \n     _/--\' |   -hrr-   :`-- /         \\_:_:_| \n   ,\',\',\'  |           |___ \\ \n   `^._,--\'           / , , .) \n                      `-._,-\' \n";
+
+        for (int i = 0; i < 908; i++)
+        {
+            printf("%c", DOG[i]);
+        }
+    }
     else if (strcmp(commandName, "help") == 0 || strcmp(commandName, "help\n") == 0)
     {
         String DISCRIPTION = createString();
@@ -163,8 +181,11 @@ void commandSwitch(char command[255], char *path)
             printf("help cp \t--->\t Copy a file\n");
             printf("help ls \t--->\t List files in directitory\n");
             printf("help ndir \t--->\t Create a new Directitory\n");
-            printf("help cdir \t--->\t Change the Directitory\n");
+            printf("help cd \t--->\t Change the Directitory\n");
             printf("help nf \t--->\t Create a NewFile\n");
+            printf("help df \t--->\t Delete File\n");
+            printf("help rn \t--->\t Rename File\n");
+            printf("help textedit \t--->\t Edit a TextFile\n");
             printf("help exit \t--->\t Exit the Application\n");
             printf("**************************************\n");
             flag = 1;
@@ -172,12 +193,12 @@ void commandSwitch(char command[255], char *path)
         else if (strcmp(next, "mv") == 0)
         {
             scanString(DISCRIPTION, "Move a file from dir x to dir y");
-            scanString(USAGE, "mv SOURCE DESTINATION");
+            scanString(USAGE, "mv SOURCE DESTINATION FILENAME");
         }
         else if (strcmp(next, "cp") == 0)
         {
             scanString(DISCRIPTION, "Copy a file from dir x to dir y");
-            scanString(USAGE, "mv SOURCE DESTINATION");
+            scanString(USAGE, "cp SOURCE DESTINATION FILENAME");
         }
         else if (strcmp(next, "ls") == 0)
         {
@@ -189,15 +210,30 @@ void commandSwitch(char command[255], char *path)
             scanString(DISCRIPTION, "Create a new directitory");
             scanString(USAGE, "ndir DIR_PATH");
         }
-        else if (strcmp(next, "cdir") == 0)
+        else if (strcmp(next, "cd") == 0)
         {
             scanString(DISCRIPTION, "Change the directitory");
-            scanString(USAGE, "cdir DIR_PATH");
+            scanString(USAGE, "cd DIR_PATH");
         }
         else if (strcmp(next, "nf") == 0)
         {
             scanString(DISCRIPTION, "Create a NewFile");
-            scanString(USAGE, "nf DIR_PATH");
+            scanString(USAGE, "nf DIR_PATH FILENAME");
+        }
+        else if (strcmp(next, "df") == 0)
+        {
+            scanString(DISCRIPTION, "Delete a File");
+            scanString(USAGE, "df DIR_PATH FILENAME");
+        }
+        else if (strcmp(next, "rn") == 0)
+        {
+            scanString(DISCRIPTION, "Rename a File");
+            scanString(USAGE, "rn DIR_PATH FILENAME NEW_FILENAME");
+        }
+        else if (strcmp(next, "textedit") == 0)
+        {
+            scanString(DISCRIPTION, "Edit a textfile");
+            scanString(USAGE, "textedit SOURCE FILENAME");
         }
         else
         {
