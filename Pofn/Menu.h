@@ -2,6 +2,7 @@
 #include <stdbool.h>
 
 bool exitFileExplorer = false;
+bool flag = true;
 
 void commandSwitch(char command[255], char *path)
 {
@@ -254,6 +255,8 @@ void commandSwitch(char command[255], char *path)
             printf("**************************************\n");
         }
     }
+    else if (strcmp(commandName, "\n") == 0 | strcmp(commandName, " \n") == 0)
+        flag = false;
     else
     {
         printf("Please enter a valid command!\n");
@@ -267,7 +270,9 @@ int menuStart()
     char command[100];
     while (!exitFileExplorer)
     {
-        printf("%s :/> ", currPath);
+        if (flag == true)
+            printf("%s :/> ", currPath);
+        flag = true;
         fgets(command, 255, stdin);
         commandSwitch(command, currPath);
         currPath = currentDirectory();
