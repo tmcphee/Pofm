@@ -240,6 +240,11 @@ void commandSwitch(char command[255], char *path)
             scanString(DISCRIPTION, "Edit a textfile");
             scanString(USAGE, "textedit SOURCE FILENAME");
         }
+        else if (strcmp(next, "exit") == 0)
+        {
+            scanString(DISCRIPTION, "Exits the application");
+            scanString(USAGE, "exit");
+        }
         else
         {
             printf("Invalid help command\n");
