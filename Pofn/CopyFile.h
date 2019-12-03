@@ -79,6 +79,7 @@ void copyFileLocal(char *sourcec, char *filec)
 	stringCopy(destination, source);
 
 #endif
+	//Loop through string backwards and look for . to find beginning of extension
 	for (int i = stringLength(destination); i >= 0; i--)
 	{
 		if (sgetChar(destination, i) == '.')
@@ -87,6 +88,7 @@ void copyFileLocal(char *sourcec, char *filec)
 			break;
 		}
 	}
+	//Add -copy to filename before extenstion example test.png -> test-copy.png
 	for (int i = 0; i < 5; i++)
 	{
 		addCharIndex(destination, copy[i], extindex + i);

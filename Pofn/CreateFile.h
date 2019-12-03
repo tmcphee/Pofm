@@ -52,6 +52,7 @@ int createFileLocal(char *sourcec, char *namec)
 	stringGets(userinput);
 	buff = putString(userinput);
 
+	//write to file char by char
 	for (int i = 0; i < stringLength(userinput); i++)
 	{
 		if (i % 150 == 0 && i != 0)

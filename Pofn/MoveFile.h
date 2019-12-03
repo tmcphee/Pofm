@@ -25,9 +25,8 @@ void moveFileLocal(int mode, char *sourcec, char *destc, char *filenamec)
 	FILE *file;		//file to be moved
 	FILE *filedest; //File to be created
 
-	//dir = opendir(".");
-	//Get user input need : name of file ex. c/users/jack/filename.png	folder to move file to ex. c/users/jack/newfolder new filename
 
+	//Scan local variables from inputs
 	scanString(source, sourcec);
 	scanString(destination, destc);
 	scanString(name, filenamec);
@@ -36,6 +35,8 @@ void moveFileLocal(int mode, char *sourcec, char *destc, char *filenamec)
 	src = putString(source);
 	dest = putString(destination);
 	n = putString(name);
+
+	//If the location being copied to is the same location, copy file instead of moving
 	if (stringComp(source, destination))
 	{
 		copyFileLocal(sourcec, filenamec);
@@ -45,6 +46,8 @@ void moveFileLocal(int mode, char *sourcec, char *destc, char *filenamec)
 	//open directorys and check if they exist
 	destination_folder = opendir(dest);
 	source_folder = opendir(src);
+
+	//If either directory doesn't exist throw error
 	if (source_folder == NULL)
 	{
 		printf("Unable to open Directory %s\n", src);
@@ -61,9 +64,6 @@ void moveFileLocal(int mode, char *sourcec, char *destc, char *filenamec)
 	//check directory to see if file exist
 	while ((entry = readdir(source_folder)) != NULL)
 	{
-		//printf("%s\n", entry->d_name);
-
-		//if (entry->d_name == n) { found = 1; }
 		int i = 0;
 		while (i < stringLength(name))
 		{
@@ -74,12 +74,12 @@ void moveFileLocal(int mode, char *sourcec, char *destc, char *filenamec)
 			i++;
 			if (i == stringLength(name))
 			{
-				found = 1;
+				found = 1;	//The name of the file does exist in the target directory
 			}
 		}
 	}
 
-	if (!found)
+	if (!found)	//If file doesn't exist throw error
 	{
 		printf("File %s could not be found it either isn't in this folder, or doesn't exist", n);
 		return;
@@ -123,11 +123,12 @@ void moveFileLocal(int mode, char *sourcec, char *destc, char *filenamec)
 	fclose(filedest);
 	fclose(file);
 
-	//Remove the original file
+	//delete the original file
 	if (mode == 1)
 	{
 		deleteFile(1, putString(source), " ");
 	}
+
 	//freeing memory
 	free(destination_folder);
 	free(source_folder);
