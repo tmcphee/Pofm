@@ -2,15 +2,17 @@
 #include <stdio.h>
 #include "liststring.h"
 
+//two modes, 0 for removing file with global path, or 1 for removing file with local path
 int deleteFile(int mode, char *path, char *namec)
 {
   //Variables
-  int status;
-  char *file_name;
-  String str = createString();
-  if (mode == 0)
+  int status;		//Stores result of delete
+  char *file_name;		//Stores filename
+  String str = createString();	//Stores filename in dynamic string
+  if (mode == 0)			
   {
     scanString(str, path);
+	//For cross platform add different slashes to file path
 #ifdef _WIN32
     addChar(str, (char)(92));
 #else
@@ -26,6 +28,7 @@ int deleteFile(int mode, char *path, char *namec)
 
   status = remove(file_name); //Attempt to remove the file if it exist, otherwise throw error
 
+  //If file was not deleted return 1
   if (status != 0)
     return 1;
 
