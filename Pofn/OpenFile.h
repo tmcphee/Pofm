@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include "liststring.h"
 
-FILE* OpenFileLocal(char* path, char* mode) {
-	FILE* file = fopen(path, mode);
+//opens a file
+FILE *OpenFileLocal(char *path, char *mode)
+{
+	//creates a file ptr
+	FILE *file = fopen(path, mode);
+	//returns file ptr
 	return file;
 }
