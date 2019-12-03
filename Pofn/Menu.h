@@ -70,12 +70,8 @@ void commandSwitch(char command[255], char *path)
         }
         //try to create a new directory
         int succeed = createDirectory(commandParam);
-        //if 1
-        if (succeed == 1)
-            //error
-            printf("Invalid directory path or name\n");
         //if 2
-        else if (succeed == 2)
+        if (succeed == 2)
             //error
             printf("Directory already created\n");
         //if neither
@@ -90,6 +86,14 @@ void commandSwitch(char command[255], char *path)
     {
         //get next arg
         char *commandParam = strtok(NULL, "\n");
+        //if null
+        if (commandParam == NULL)
+        {
+            //error
+            //please enter valid num arg
+            printf("Please enter a directory path or name\n");
+            return;
+        }
         //try to change dir
         int x = chdir(commandParam);
         //if failed
@@ -179,7 +183,7 @@ void commandSwitch(char command[255], char *path)
         else if (succeed == 2)
         {
             //error
-            printf("File %s could not be found it either isn't in this folder, or doesn't exist", commandParam2);
+            printf("File %s could not be found it either isn't in this folder, or doesn't exist\n", commandParam2);
             return;
         }
         //if 0
@@ -192,7 +196,7 @@ void commandSwitch(char command[255], char *path)
     {
         //get next 2 arg
         char *commandParam = strtok(NULL, " ");
-        char *commandParam2 = strtok(NULL, " ");
+        char *commandParam2 = strtok(NULL, "\n");
         //if any are null
         if (commandParam == NULL || commandParam2 == NULL)
         {
@@ -213,14 +217,14 @@ void commandSwitch(char command[255], char *path)
         else if (succeed == 2)
         {
             //error
-            printf("File %s does not exist.", commandParam2);
+            printf("File %s does not exist.\n", commandParam2);
             return;
         }
         //if 3
         else if (succeed == 3)
         {
             //error
-            printf("Invalid index entered");
+            printf("Invalid index entered\n");
             return;
         }
         //if 0

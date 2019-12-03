@@ -13,7 +13,9 @@
 #include "TextEdit.h"
 #include "Menu.h"
 
+//main function
 int main(int argc, char *argv[])
 {
+	//just calls the menu
 	menuStart();
 }

@@ -81,7 +81,7 @@ void moveFileLocal(int mode, char *sourcec, char *destc, char *filenamec)
 
 	if (!found)
 	{
-		printf("File %s could not be found it either isn't in this folder, or doesn't exist", n);
+		printf("File %s could not be found it either isn't in this folder, or doesn't exist\n", n);
 		return;
 	}
 

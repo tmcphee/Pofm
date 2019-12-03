@@ -63,7 +63,7 @@ void copyFileLocal(char *sourcec, char *filec)
 
 	if (!found)
 	{
-		printf("File %s could not be found it either isn't in this folder, or doesn't exist", n);
+		printf("File %s could not be found it either isn't in this folder, or doesn't exist\n", n);
 		return;
 	}
 
